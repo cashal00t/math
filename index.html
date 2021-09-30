@@ -13,7 +13,7 @@
 
 
     <script>
-        const zadanie = parseInt( prompt(`Wybierz zadanie:'
+        var zadanie = parseInt( prompt(`Wybierz zadanie:'
 1. Pole powierzchni i objętość walca,
 2. Pole powierzchni i objętość kuli,
 3. Pole powierzchni trójkąta,
@@ -24,10 +24,11 @@
 
 switch (zadanie) {
     case 1:
-        const r = prompt("Podaj r:")
-        const h = prompt("Podaj h:")
+        const r = prompt("Podaj r:");
+        const h = prompt("Podaj h:");
 
         const v = Math.PI * (r * r) * h
+        console.log(v);
         const ppb = 2 * Math.PI * r * h
         const ppc = ppb + 2 * Math.PI
 
@@ -39,15 +40,15 @@ switch (zadanie) {
 
     case 2:
 
-        const r = prompt("Podaj r:")
-        const h = prompt("Podaj h:")
+        const rk = prompt("Podaj r:");
+        const hk = prompt("Podaj h:");
 
-        const V = (4 / 3) * Math.PI * (r * r * r)
-        const ppc = 4 * Math.PI * (r * r)
+        const V = (4 / 3) * Math.PI * (rk * rk * rk)
+        const ppck = 4 * Math.PI * (rk * rk)
 
-        document.write('<p>ZADANIE 2</p>')
-        document.write(`<p style='color: green'> Pole powierzchni kuli: ${ppc}</p>`)
-        document.write(`<p style='color: blue'> Objętość kuli: ${V}</p>`)
+        document.write('<p>ZADANIE 2</p>');
+        document.write(`<p style='color: green'> Pole powierzchni kuli: ${ppck}</p>`);
+        document.write(`<p style='color: blue'> Objętość kuli: ${V}</p>`);
 
         break;
 
@@ -55,14 +56,15 @@ switch (zadanie) {
 
         document.write('<p>ZADANIE 3</p>')
         
-        const choose = prompt('a - wzor z sinusem czy b - wzor heliona');
+        const choose = prompt('a - wzor z sinusem czy b - wzor herona');
         if (choose === 'a') {
-            const a = parseFloat(prompt('Podaj a'));
-            const b = parseFloat(prompt('Podaj b'));
+            const av = parseFloat(prompt('Podaj a'));
+            const bv = parseFloat(prompt('Podaj b'));
             const kat = parseFloat(prompt('Podaj kąt'));
-            const radiany = Math.PI / 180 * kat;
 
-            const pta = 1 / 2 * a * b * Math.sin(radiany)
+            console.log(Math.sin(kat))
+
+            const pta = (1 / 2) * av * bv * Math.sin(kat)
             document.write(`<p style='color: blue'> Pole powierzchni trójkąta ze wzoru sinus: ${pta.toFixed(4)}</p>`)
             break;
         } else if (choose === 'b') {
@@ -93,7 +95,7 @@ switch (zadanie) {
 
             const d= Math.sqrt(Math.pow(Xb - Xa, 2)+ Math.pow(Yb - Ya, 2));
 
-            document.write(`<p style='color: red'> Odległość tych punktów wynosi: ${d.toFixed(4)}</p>`)
+            document.write(`<p style='color: red'> Odległość tych punktów wynosi: ${d}</p>`)
                
         break;
 
@@ -103,11 +105,13 @@ switch (zadanie) {
             document.write('<p>ZADANIE 5 - obliczanie pierwiastków równania kwadratowego</p>')
 
 
-            const a = prompt("Podaj a")
-            const b = prompt("Podaj b:")
-            const c = prompt("Podaj c:")
+            const ax = prompt("Podaj a")
+            const bx = prompt("Podaj b:")
+            const cx = prompt("Podaj c:")
 
-            const delta= Math.pow(b,2) - 4*a*c
+            const delta= Math.pow(bx,2) - 4*ax*cx;
+            
+            console.log(delta);
 
             if(delta<0){
                     
@@ -117,18 +121,18 @@ switch (zadanie) {
 
             else if(delta==0){
                    
-                const x0=(-b)/(2*a);
-                document.write(`<p>Funkcja posiada jedno miejsce zerowe ${x0.toFixed(4)} </p> `);
+                const x0=(-bx)/(2*ax);
+                document.write(`<p>Funkcja posiada jedno miejsce zerowe ${x0} </p> `);
 
             } 
             
             else if(delta>0){
 
-                const pierw=Math.sqrt(delta)
+                const pierw=Math.sqrt(delta);
                    
-                const x1=(-b)-pierw/(2*a);
-                const x2=(-b)+pierw/(2*a);
-                document.write(`<p>Funkcja posiada dwa miejsca zerowe: x1= ${x1.toFixed(4)},  x2= ${x2.toFixed(4)} </p> `);
+                const x1=((-bx)-pierw)/(2*ax);
+                const x2=((-bx)+pierw)/(2*ax);
+                document.write(`<p>Funkcja posiada dwa miejsca zerowe: x1= ${x1},  x2= ${x2} </p> `);
 
             }  
 
@@ -137,19 +141,18 @@ switch (zadanie) {
 
     case 6:
 
-            document.write('<p>ZADANIE 6 - losowa liczba z zakresu wybranego przez użytkownika</p>')
+            document.write('<p>ZADANIE 6 - losowa liczba z zakresu wybranego przez użytkownika</p>');
 
-            var min= prompt('Wartość minimalna:')
-            var max= prompt('Wartość maksymalna:')
+            var min= prompt('Wartość minimalna:');
+            var max= prompt('Wartość maksymalna:');
 
-            function getRandomIntInclusive(min, max) {
+         
                 min = Math.ceil(min);
                 max = Math.floor(max);
                 const komp= Math.floor(Math.random() * (max - min + 1)) + min;
 
-                document.write(`<p>Wylosowana liczba z zakresu ${min.toFixed(4)} - ${max.toFixed(4)} to: ${komp.toFixed(4)}</p>  `);
-                   
-              }
+              document.write(`<p>Wylosowana liczba z zakresu ${min} - ${max} to: ${komp}</p>  `);
+
 
         break;
 
@@ -160,6 +163,7 @@ switch (zadanie) {
 
 
 }
+
     </script>
 
 </body>
